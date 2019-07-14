@@ -1,43 +1,10 @@
-# bamazon
+#bamazon: Customer View
 
-Challenge #1: Customer View (Minimum Requirement)
+Welcome to the Bamazon Store! This project uses node and mySQL to offer a customer interface for purchasing products from the Bamazon Apothecary. 
 
+First the user gets to select which product they wish to purchase ![](images/Shot1.png).
 
-Create a MySQL Database called bamazon.
-Then create a Table inside of that database called products.
-The products table should have each of the following columns:
-
-
-
-item_id (unique id for each product)
-product_name (Name of product)
-department_name
-price (cost to customer)
-stock_quantity (how much of the product is available in stores)
+Next the user is prompted to select how much of that item they wish to purchase. If the user tries to buy more of an item than there is in stock, they'll receive a message indicating their is insufficient stock and be prompted to select a different amount ![](images/Shot2.png). Once the user has selected how much of a certain item they wish to purhase, if that item has sufficient stock then the user's selection of product as well as amount that the user owes displays ![](images/Shot3.png). The database is updated accordingly to reflect the change in stock available after the sale ![](images/Shot4.png). 
 
 
 
-Populate this database with around 10 different products. (i.e. Insert "mock" data rows into this database and table).
-Then create a Node application called bamazonCustomer.js. Running this application will first display all of the items available for sale. Include the ids, names, and prices of products for sale.
-The app should then prompt users with two messages.
-
-
-
-The first should ask them the ID of the product they would like to buy.
-The second message should ask how many units of the product they would like to buy.
-
-
-
-Once the customer has placed the order, your application should check if your store has enough of the product to meet the customer's request.
-
-
-
-If not, the app should log a phrase like Insufficient quantity!, and then prevent the order from going through.
-
-
-
-However, if your store does have enough of the product, you should fulfill the customer's order.
-
-
-This means updating the SQL database to reflect the remaining quantity.
-Once the update goes through, show the customer the total cost of their purchase.

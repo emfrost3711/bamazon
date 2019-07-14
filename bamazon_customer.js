@@ -10,11 +10,6 @@ var connection = mysql.createConnection({
     database: "bamazon_db"
 });
 
-var table = new Table({
-    head: ['product ID', 'product name', 'department name', 'price', 'stock quantity'],
-    colWidths: [200, 200, 200, 200, 200]
-});
-
 function products() {
     connection.query("SELECT * FROM products", function (err, data) {
         if (err) throw err;
@@ -72,7 +67,7 @@ function updateQuantity (amount, chosenItem) {
         connection.query("UPDATE products SET stock_quantity = ? WHERE product_name = ? ", [amount, chosenItem.product_name], function(err, res) {
             if (err) throw err;
             var total = (amount * chosenItem.price);
-            console.log("you have purchased " + amount + "of " + chosenItem.product_name + "Your total is " + total);
+            console.log("You have purchased " + amount + " of " + chosenItem.product_name + ". Your total is $" + total + ".");
         })
          }
 
@@ -80,16 +75,3 @@ connection.connect(function () {
     console.log(`Connected as id ${connection.threadId}`);
     products();
 });
-
-
-
-// if the product stock quantity is greater than users quantity then run the connection.query update; otherwise, message "insufficient stock" & kick back to beginning of products
-// EXAMPLE CODE HERE
-// connection.query("UPDATE products SET ? WHERE ?", [
-//     {skill_rating: parseInt(answers.rating)}, 
-//     {skill_name: answers.skill}], function(err) {
-//         if (err) throw err;
-//         //console.log updated skill [skill] to rating [rating]
-//         console.log (`Update skill ${answers.skill} to rating ${answers.rating}.`);
-//         menu();
-//     }

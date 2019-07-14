@@ -26,17 +26,3 @@ VALUES ("lavender", "essential oils", 30.50, 20),
        ("tigers eye", "crystals", 9.00, 5),
        ("carnelian", "crystals", 7.00, 3), 
        ("blue agate", "crystals", 6.75, 4);
-
-
-       
-       ///
-         {message: "How many would you like to purchase?",
-         name: "quantity", 
-         validate: function(input) {
-             if (isNaN(input)) {
-             return "Please enter a numeric quantity.";
-            }
-            
-        }
-
-         }
